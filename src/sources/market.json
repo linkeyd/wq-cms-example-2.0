@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "total":200,
+  "dataSource": [
+    {
+      "id": 1,
+      "time": "胡彦斌",
+      "shopping": 32,
+      "agency": "西湖区湖底公园1号"
+    },
+    {
+      "id": 2,
+      "time": "胡彦斌",
+      "shopping": 32,
+      "agency": "西湖区湖底公园1号"
+    },
+    {
+      "id": 3,
+      "time": "胡彦斌",
+      "shopping": 32,
+      "agency": "西湖区湖底公园1号"
+    },
+    {
+      "id": 4,
+      "time": "胡彦斌",
+      "shopping": 32,
+      "agency": "西湖区湖底公园1号"
+    },
+    {
+      "id": 5,
+      "time": "胡彦斌",
+      "shopping": 32,
+      "agency": "西湖区湖底公园1号"
+    }
+  ]
+}

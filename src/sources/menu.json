@@ -1,0 +1,30 @@
+{
+  "status": 200,
+  "data":[
+    {
+      "url":"/index",
+      "name":"首页",
+      "icon":"home"
+    },
+    {
+      "url":"/disStair",
+      "name":"二级代理设置",
+      "icon":"shopping-cart"
+    },
+    {
+      "url":"/disManage",
+      "name":"用户管理",
+      "icon":"user"
+    },
+    {
+      "url":"/userReport",
+      "name":"用户报表",
+      "icon":"bar-chart"
+    },
+    {
+      "url":"/manageReport",
+      "name":"代理商报表",
+      "icon":"dot-chart"
+    }
+  ]
+}

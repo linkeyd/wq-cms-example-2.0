@@ -1,0 +1,37 @@
+.logo {
+  width: 200px;
+  height: 31px;
+  color: white;
+  margin: 0 28px 16px 0;
+  float: left;
+}
+.title{
+  color: white;
+  cursor: pointer;
+}
+.user{
+  float: right;
+  margin-right: 5em;
+  font-size: 14px;
+  color: white;
+}
+.loginOut{
+  margin-left: 20px;
+
+}
+.users{
+  color: white;
+}
+.headerMenu{
+  background-color: #222d3f;
+  border-bottom:1px solid #222d3f;
+  float: left;
+  width: 40%;
+
+}
+.headerMenu ul{
+  background-color: #222d3f;
+  color: white;
+  height: 63px;
+  line-height: 5.4;
+}
