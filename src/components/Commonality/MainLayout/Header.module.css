@@ -13,14 +13,14 @@
   float: right;
   margin-right: 5em;
   font-size: 14px;
-  color: white;
+  color: black;
 }
 .loginOut{
   margin-left: 20px;
 
 }
 .users{
-  color: white;
+  color: black;
 }
 .headerMenu{
   background-color: #222d3f;
@@ -31,7 +31,12 @@
 }
 .headerMenu ul{
   background-color: #222d3f;
-  color: white;
+  color: black;
   height: 63px;
   line-height: 5.4;
+}
+.top{
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -22,10 +22,10 @@ class Header extends Component {
         let header = '';
         switch (this.props.match.params.gameId) {
             case 'yaba':
-                header = '丫霸十三水';
+                header = 'xx';
                 break;
             case 'haoyun':
-                header = '好运十三水';
+                header = 'xx';
                 break;
             default:
                 header = '账号管理';
@@ -84,15 +84,11 @@ class Header extends Component {
             )
         };
         return (
-            <div>
+            <div className={styles.top}>
                 <QueueAnim
                     delay={400}
                 >
-                    <div className={styles.logo} key="logo">
-                        <h1 className={styles.title} onClick={e => {
-                            this.goBack()
-                        }}>{this.state.header}</h1>
-                    </div>
+
 
                     <div className={styles.user} key="dro">
                         {this.props.visibleDate ?

@@ -49,15 +49,6 @@ class Login extends Component{
           this.props.history.push('/select');
         }
 
-        // if(json.info.powerType === "2"){
-        //   window.localStorage.setItem('selectKey','/disStair');
-        //   browserHistory.push('/disStair');
-        //
-        // }
-        // else{
-        //   window.localStorage.setItem('selectKey','/disTwo');
-        //   browserHistory.push('/disTwo');
-        // }
 
       }
       else {

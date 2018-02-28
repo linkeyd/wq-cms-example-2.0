@@ -5,7 +5,6 @@ import {
     Switch,
     Route
 } from 'react-router-dom';
-
 import MainLayout from './components/Commonality/MainLayout/MainLayout';
 import {Provider} from 'react-redux';
 import store from './stores/store';

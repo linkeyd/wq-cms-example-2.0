@@ -46,7 +46,7 @@ export let getFetch = async (url) => {
   try {
     let response = await fetch(url, {
       method: 'GET',
-      credentials: "include",
+      // credentials: "include",
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
