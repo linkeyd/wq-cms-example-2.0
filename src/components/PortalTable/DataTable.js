@@ -11,19 +11,33 @@ import {getFetch,deleteFetch} from '../../../utils/request';
 export default class DataTable extends Component {
   constructor(props) {
     super(props);
+    let columns = this.props.columns;
+    let primary = this.getPrimary(columns);
+
     this.state = {
       loading:false,
       pageSize:this.props.pageSize,
-      columns:this.props.columns,
+      columns:columns,
       current:1,
       total:1,
-      dataSource:[]
+      dataSource:[],
+      primary:primary
     }
   }
   componentDidMount(){
     this.getData();
   }
-
+  getPrimary(columns){
+      for(let key in columns) {
+          if (columns[key].primary) {
+              return columns[key].key;
+          }
+          else if(columns[key].key === 'id'){
+              return columns[key].key;
+          }
+      }
+      return columns[0].key;
+  }
     /**
      * 获取数据
      * @param page
@@ -98,12 +112,12 @@ export default class DataTable extends Component {
                      getData={e=>{this.getData(this.state.current)}}
                      url={this.props.url}
                      columns={this.state.columns}
-
+                     primary = {this.state.primary}
                  >
                      <Button type="dashed" size="small" style={{"marginLeft":15}}>编辑</Button>
                 </EditModal>:''}
                 {this.props.operation.indexOf("delete") >=0?
-                    <Popconfirm title="是否要删除本条数据?" onConfirm={e=>{this.deleteHandler( record.id)}}>
+                    <Popconfirm title="是否要删除本条数据?" onConfirm={e=>{this.deleteHandler( record[this.state.primary])}}>
                         <Button type="danger" size="small" style={{"marginLeft":15}}>删除</Button>
                     </Popconfirm>:''}
         </span>
@@ -121,7 +135,7 @@ export default class DataTable extends Component {
           <EditModal
               value={{}}
               title="添加"
-              getData={e=>{this.getData()}}
+              getData={e=>{this.getData(this.state.current)}}
               url={this.props.url}
               columns={this.state.columns}
           >
@@ -131,7 +145,7 @@ export default class DataTable extends Component {
         <Table
           columns={option()}
           dataSource={this.state.dataSource}
-          rowKey={record => record.id}
+          rowKey={record => record[this.state.primary]}
           pagination={false}
           loading={this.state.loading}
         />

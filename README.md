@@ -21,3 +21,4 @@ Out of the box it comes with support for:
 - Add Echart React Support
 - Add login example
 - Add Redux example
+- Add PortalTable example(Create auto table CRUD)

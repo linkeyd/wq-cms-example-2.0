@@ -2,19 +2,18 @@
  * Created by linwei on 2017/8/2.
  */
 import React, {Component} from 'react';
-import {Modal, Input, Form,message,DatePicker } from 'antd';
+import {Modal, Input, Form,message,DatePicker,InputNumber,Select  } from 'antd';
 import {deleteFetch, postFetch, putFetch} from '../../../utils/request';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 const FormItem = Form.Item;
 const { TextArea } = Input;
-
+const Option = Select.Option;
 
 class EditModal extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             visible: false
         }
@@ -34,7 +33,6 @@ class EditModal extends Component {
     }
 
     operation(err,values) {
-        console.log(values);
         if(!err){
             if(Object.keys(this.props.value).length>0){
                 this.update(values);
@@ -50,7 +48,7 @@ class EditModal extends Component {
     async update(values){
         const props = this.props;
 
-        const result = await putFetch(props.url+'/'+props.value[props.columns[0].dataIndex],values);
+        const result = await putFetch(props.url+'/'+props.value[props.primary],values);
         if(result.status ===200){
             props.getData();
             this.setState({
@@ -105,6 +103,7 @@ class EditModal extends Component {
                             </FormItem>
                         )
                     case 'textArea':
+
                         return (
                             <FormItem key={index} hasFeedback label={options.title + ":"}>
 
@@ -126,13 +125,16 @@ class EditModal extends Component {
 
                                 {getFieldDecorator(options.dataIndex, {
                                     rules: options.rule,
-                                    initialValue: Object.keys(this.props.value).length>0?moment(this.props.value[options.dataIndex], 'YYYY-MM-DD HH:mm:ss'):''
+                                    initialValue: Object.keys(this.props.value).length > 0 ?
+                                        moment(this.props.value[options.dataIndex], 'YYYY-MM-DD HH:mm:ss') :
+                                        moment(new Date(), 'YYYY-MM-DD HH:mm:ss')
                                 })(
                                     <DatePicker
                                         size="large"
                                         showTime
                                         format="YYYY-MM-DD HH:mm:ss"
                                         placeholder="选择时间"
+
                                         style={{"width":"100%"}}
                                         disabled={Object.keys(this.props.value).length>0&&options.disabled? true:false}
                                     />
@@ -140,9 +142,50 @@ class EditModal extends Component {
                             </FormItem>
 
                         )
+                    case 'number':
+                        return (
+                            <FormItem key={index} hasFeedback label={options.title + ":"}>
+
+                                {getFieldDecorator(options.dataIndex, {
+                                    rules: options.rule,
+                                    initialValue: this.props.value[options.dataIndex]
+                                })(
+                                    <InputNumber
+                                        size="large"
+                                        style={{width: '100%'}}
+                                        placeholder={options.title}
+                                        min={options.value?options.value[0]:-10000000000000000000000000}
+                                        max={options.value?options.value[1]:10000000000000000000000000}
+                                    />
+                                )}
+                            </FormItem>
+                        )
+                    case 'select':
+                        return (
+                            <FormItem key={index} hasFeedback label={options.title + ":"}>
+
+                                {getFieldDecorator(options.dataIndex, {
+                                    rules: options.rule,
+                                    initialValue: this.props.value[options.dataIndex]?
+                                        this.props.value[options.dataIndex]:
+                                        options.options[0].value
+                                })(
+                                    <Select
+                                        style={{ width: '100%' }}
+                                        size="large"
+                                    >
+                                        {options.options.map(optionRender)}
+                                    </Select>
+                                )}
+                            </FormItem>
+                        )
                 }
-            }
-        ;
+            };
+        let optionRender = (options,index)=>{
+            return (
+                <Option key={index} value={options.value}>{options.data}</Option>
+            )
+        };
         return (
             <span>
         <span onClick={e => {
