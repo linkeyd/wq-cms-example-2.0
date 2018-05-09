@@ -22,3 +22,21 @@ Out of the box it comes with support for:
 - Add login example
 - Add Redux example
 - Add PortalTable example(Create auto table CRUD)
+
+# Document
+## PortalTable
+
+参数 | 说明 | 返回 
+- | :-: | -: 
+url | 请求的链接地址 | string 
+pageSize | 设置每页最大数据 | number 
+operation | 开启操作选项 ``edit``,``show``,``delete``,``create``| Array<T>
+columns | 数据设置 | Array<object>
+
+### columns
+参数 | 说明 | 返回 
+- | :-: | -: 
+title | 标题 | string 
+dataIndex | 数据源，用于表格显示，修改默认数据 | string
+key | 唯一的key,且用与不显示表格显示在弹窗上使用 | string
+columns | 数据设置 | Array<object>
