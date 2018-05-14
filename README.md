@@ -26,17 +26,49 @@ Out of the box it comes with support for:
 # Document
 ## PortalTable
 
-参数 | 说明 | 返回 
+参数 | 说明 | 类型 
 | --------   | --------  | :----:  |
 url | 请求的链接地址 | string 
 pageSize | 设置每页最大数据 | number 
 operation | 开启操作选项 ``edit``,``show``,``delete``,``create``| Array<T>
 columns | 数据设置 | Array<object>
 
+### PortalTable.operation
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+edit | 开启修改 | string 
+show | 开启显示 | string 
+delete | 开启删除 | string
+create | 开启创建 | string
+
 ### columns
-参数 | 说明 | 返回 
+参数 | 说明 | 类型 
 | --------   | --------  | :----:  |
 title | 标题 | string 
 dataIndex | 数据源，用于表格显示，修改默认数据 | string
-key | 唯一的key,且用与不显示表格显示在弹窗上使用 | string
-columns | 数据设置 | Array<object>
+key | 唯一的key,且用于不显示表格，显示在弹窗上使用 | string
+type | Input标识 | string
+rule | 验证规则,参考antd Form 表单rule验证器 | object 
+render | 渲染界面 | function(text)
+showTitle | 显示在showModal上数据 | string
+range |  ``type :'number' `` 对数据的限制范围  | Array
+options | ``type :'select' ``下拉列表数据 | Array
+disabled | 是否在修改数据时禁用 | bool
+primary | 是否为主键.``default:id`` | bool
+
+#### columns.type
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+time | 时间控件 | string 
+text | 输入框 | string
+password | 密码框 | string
+textArea | 多行文本 | string
+number | 数字文本 | string
+select | 下拉列表 | string
+
+#### columns.options
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+text | 显示的文字 | string 
+value | ``value``值 | string
+

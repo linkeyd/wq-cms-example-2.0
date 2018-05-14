@@ -154,8 +154,8 @@ class EditModal extends Component {
                                         size="large"
                                         style={{width: '100%'}}
                                         placeholder={options.title}
-                                        min={options.value?options.value[0]:-10000000000000000000000000}
-                                        max={options.value?options.value[1]:10000000000000000000000000}
+                                        min={options.range?options.range[0]:-10000000000000000000000000}
+                                        max={options.range?options.range[1]:10000000000000000000000000}
                                     />
                                 )}
                             </FormItem>
@@ -183,7 +183,7 @@ class EditModal extends Component {
             };
         let optionRender = (options,index)=>{
             return (
-                <Option key={index} value={options.value}>{options.data}</Option>
+                <Option key={index} value={options.value}>{options.text}</Option>
             )
         };
         return (
