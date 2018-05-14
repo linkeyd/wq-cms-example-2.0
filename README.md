@@ -24,7 +24,7 @@ Out of the box it comes with support for:
 - Add PortalTable example(Create auto table CRUD)
 
 # Document
-## PortalTable
+## PortalTable 组件设置
 
 参数 | 说明 | 类型 
 | --------   | --------  | :----:  |
@@ -72,3 +72,39 @@ select | 下拉列表 | string
 text | 显示的文字 | string 
 value | ``value``值 | string
 
+## PortalTable 服务端接口规范
+使用PortalTable服务端请根据RestFul接口标准规范定制路由组件。
+
+### Route
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+get | 获取请求``route.get('/list')`` | Route 
+put | 修改请求``route.put('/list/:id')`` | Route
+post | 创建请求``route.post('/list')`` | Route
+delete | 删除请求``route.delete('/list/:id')`` | Route
+
+### Route.get
+
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+page | 获取当前页面 | request.query 
+pageSize | 获取页面显示最大条数 | request.query
+
+### Route.post
+
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+body | 获取需要创建的数据 | request.body 
+
+### Route.put
+
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+/:primary | 获取修改信息的主键 | request.params 
+body | 需要修改的信息 | request.body
+
+### Route.delete
+
+参数 | 说明 | 类型 
+| --------   | --------  | :----:  |
+/:primary | 获取删除信息的主键 | request.params 
