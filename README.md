@@ -94,14 +94,14 @@ pageSize | 获取页面显示最大条数 | request.query
 
 参数 | 说明 | 类型 
 | --------   | --------  | :----:  |
-body | 获取需要创建的数据 | request.body 
+body | 获取需要创建的数据,只会获取到``operation:create``里面的参数。 | request.body 
 
 ### Route.put
 
 参数 | 说明 | 类型 
 | --------   | --------  | :----:  |
 /:primary | 获取修改信息的主键 | request.params 
-body | 需要修改的信息 | request.body
+body | 需要修改的信息,只会获取到``operation:edit``里面的参数。 | request.body
 
 ### Route.delete
 
