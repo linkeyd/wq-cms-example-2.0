@@ -30,15 +30,16 @@ export default class DataTable extends Component {
     }
 
     getPrimary(columns) {
+        let primary = '';
         for (let key in columns) {
             if (columns[key].primary) {
-                return columns[key].key;
+                primary =  columns[key].key;
             }
             else if (columns[key].key === 'id') {
-                return columns[key].key;
+                primary = columns[key].key;
             }
         }
-        return columns[0].key;
+        return primary;
     }
 
     /**
