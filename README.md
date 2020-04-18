@@ -1,3 +1,39 @@
+jest.steup.js
+/* eslint-disable import/no-extraneous-dependencies */
+import { configure } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
+
+jest.config.js
+module.exports = {
+  roots: ['<rootDir>/__test__/', '<rootDir>/src/'], // 测试的目录
+  modulePaths: ['<rootDir>'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/tests/setup.js'], // 忽略统计覆盖率的文件
+  'moduleFileExtensions': [
+    'js',
+    'jsx'
+  ],
+  'moduleDirectories': [
+    'node_modules'
+  ],
+  'moduleNameMapper': {
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__jest__/__mocks__/fileMock.js',
+    '\\.(css|scss)$': 'identity-obj-proxy',
+    '^cpn(.*)$': '<rootDir>/src/components$1'
+  },
+  transform: {
+    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
+  }
+
+  // collectCoverageFrom: [
+  //   'src/**/*.(js|jsx)',
+  //   '!src/index.js',
+  //   '!src/routes/index.js',
+  //   '!**/node_modules/**'
+  // ]
+}
+
 # About
 Update project wq-antd-cms.
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
