@@ -42,7 +42,7 @@
     "rc-banner-anim": "^1.0.1",
     "rc-queue-anim": "^1.4.1",
     "react": "^16.2.0",
-    "react-dev-utils": "^5.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
